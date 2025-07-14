@@ -19,7 +19,7 @@ function Feature({ icon, title, desc }: FeatureProps) {
 export default function Home() {
   return (
     <div>
-      {/* Hero */}
+      {/* Hero */} 
       <section className="text-center py-20 bg-white">
         <h1 className="text-4xl font-bold text-gray-800">
           Transforme qualquer texto em aprendizado com{' '}
