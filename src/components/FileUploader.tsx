@@ -1,12 +1,15 @@
 'use client';
 
-import { useCallback } from 'react';
+import { Trash } from 'lucide-react';
+import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 export default function FileUploader({ onFileAccepted }: { onFileAccepted: (file: File) => void }) {
+    const [fileSelected, setFileSelected] = useState<any>();
     const onDrop = useCallback((acceptedFiles: File[]) => {
         if (acceptedFiles.length) {
             onFileAccepted(acceptedFiles[0]);
+            setFileSelected(acceptedFiles[0])
         }
     }, [onFileAccepted]);
 
@@ -16,17 +19,16 @@ export default function FileUploader({ onFileAccepted }: { onFileAccepted: (file
         multiple: false,
     });
     return (
-        <div className='w-full h-3/5 flex flex-col items-center justify-center border-4 border-gray-100 rounded-lg p-6'>
+        <div className='w-full h-1/5 flex flex-col items-center justify-center border-4 border-gray-100 rounded-lg p-6'>
             <div 
                 {...getRootProps()}
                 className="w-full h-full flex flex-col items-center justify-center border-3 border-dashed border-gray-200 rounded-lg p-6 text-center cursor-pointer hover:bg-gray-50 transition"
             >
             <input {...getInputProps()} />
-            {
-                isDragActive
-                    ? <p className="text-blue-500">Solte o arquivo aqui...</p>
-                    : <p className="text-gray-500">Arraste um PDF ou clique para selecionar</p>
-            }
+            <div className='w-full flex flex-row justify-between items-center bg-white px-6 py-6 border-2 border-gray-100 rounded-lg text-left'>
+                <p>{fileSelected ? fileSelected.name : isDragActive ? 'Solte o arquivo aqui...': 'Arraste um PDF ou clique para selecionar'} </p>
+                <Trash className='text-gray-800'/>
+            </div>
         </div>
         </div>
     )
