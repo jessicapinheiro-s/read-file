@@ -17,12 +17,15 @@ export default function Header() {
 
   return (
     <header className="w-full bg-gray-900 text-white shadow-md">
-      <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-        <h1 className="text-xl font-bold tracking-tight">
-          Read<span className="text-blue-400">ForMe</span>
-        </h1>
+      <div className="w-full  px-60 py-5 flex items-center justify-between">
+        <div className=' w-2/5'>
+          <h1 className="text-xl font-bold tracking-tight">
+            Read<span className="text-blue-400">ForMe</span>
+          </h1>
+        </div>
 
-        <nav className="space-x-4">
+        <div className=' w-4/5 flex flex-row justify-end'>
+          <nav className="space-x-20  ">
           {navLinks.map(({ label, href }) => (
             <Link
               key={href}
@@ -33,6 +36,7 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+        </div>
       </div>
     </header>
   );
