@@ -24,10 +24,10 @@ export default function FileUploader({ onFileAccepted }: { onFileAccepted: (file
         setFileSelected(null)
     }
     return (
-        <div className='w-full h-1/5 flex flex-col items-center justify-center border-4 border-gray-100 rounded-lg p-6'>
+            <div className={`w-full h-1/5 flex flex-col items-center justify-center border-4 ${fileSelected ? 'border-blue-100' : 'border-gray-100' }  rounded-lg p-6`}>
             <div
                 {...getRootProps()}
-                className="w-full h-full flex flex-col items-center justify-center border-3 border-dashed border-gray-200 rounded-lg p-6 text-center cursor-pointer hover:bg-gray-50 transition"
+                className={`w-full h-full flex flex-col items-center justify-center border-3 border-dashed ${fileSelected ? 'border-blue-200 hover:bg-blue-50' : 'border-gray-200 hover:bg-gray-50' } rounded-lg p-6 text-center cursor-pointer  transition`}
             >
                 <input {...getInputProps()} />
                 {
@@ -39,7 +39,7 @@ export default function FileUploader({ onFileAccepted }: { onFileAccepted: (file
                     fileSelected && (
                         <div className='w-full flex flex-row justify-between items-center bg-white px-6 py-6 border-2 border-gray-100 rounded-lg text-left'>
                             <p>{fileSelected ? fileSelected.name : isDragActive ? 'Solte o arquivo aqui...' : 'Arraste um PDF ou clique para selecionar'} </p>
-                            <Trash className='text-gray-800' onClick={(e) => {
+                            <Trash className={` ${fileSelected ? 'text-blue-800' : 'text-gray-800'}`} onClick={(e) => {
                                 e.stopPropagation();
                                 deleteFileSelected();
                             }} />
