@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <header className="w-full bg-gray-900 text-white shadow-md">
-      <div className="w-full  px-60 py-5 flex items-center justify-between">
+      <div className="w-full  px-5 md:px-60 py-5 flex items-center justify-between">
         <div className=' w-2/5'>
           <h1 className="text-xl font-bold tracking-tight">
             Read<span className="text-blue-400">ForMe</span>
@@ -25,7 +25,7 @@ export default function Header() {
         </div>
 
         <div className=' w-4/5 flex flex-row justify-end'>
-          <nav className="space-x-20  ">
+          <nav className="flex flex-row justify-between items-center  ">
           {navLinks.map(({ label, href }) => (
             <Link
               key={href}
