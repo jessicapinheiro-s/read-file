@@ -1,6 +1,6 @@
 'use client';
-import FileUploader from '@/components/FileUploader';
-import { usePDFStore } from '@/store/pdfContent';
+import FileUploader from '../../components/FileUploader';
+import { usePDFStore } from '../../store/pdfContent';
 import * as pdfjsLib from 'pdfjs-dist';
 import { arrayBuffer } from 'stream/consumers';
 
